@@ -17,6 +17,11 @@ PLTLIB = -L/usr/X11R6/lib -lX11
 FTNLIB =
 
 #========================================
+# gfortran
+FC = gfortran
+FLG = -O -fdefault-real-8
+PLTLIB = -L/usr/X11R6/lib -lX11
+FTNLIB =
 
 
 OS: osgen osmap.o
