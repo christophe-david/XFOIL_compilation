@@ -6,7 +6,7 @@
 
 
 SHELL = sh
-BINDIR = /home/codes/bin/
+BINDIR = ~/bin
 #BINDIR = .
 
 PROGS = xfoil pplot pxplot
@@ -33,10 +33,10 @@ OSOBJ = frplot0.o
 OSOBJ = frplot.o ntcalc.o osmap.o getosfile.o
 
 ##----------------------------------------------------
-PLTOBJ = ../plotlib/libPlt.a 
+PLTOBJ = ../plotlib/libPlt.a
 
 # Use this if you have a copy of the plotlib as a system library
-#PLTOBJ = -lPlt 
+#PLTOBJ = -lPlt
 
 # The extra location arg here is for Linux which places X libs in /usr/X11R6
 PLTLIB = -L/usr/X11R6/lib -lX11
@@ -45,7 +45,7 @@ PLTLIB = -L/usr/X11R6/lib -lX11
 ###  Default compilers and flags
 ###  FFLOPT used for xsolve.f
 FC = f77
-FFLAGS  = -O 
+FFLAGS  = -O
 FFLOPT  = -O
 INSTALLCMD = install -s
 
@@ -85,7 +85,7 @@ CFLAGS = -O -DUNDERSCORE
 #FFLAGS = -O -f -s -W -B108 -N34
 #FFLOPT = -O -f -s -W -B108 -N34
 ##--------------------------
-### f2c/gcc compiler driver 
+### f2c/gcc compiler driver
 #FC = fort77
 #FFLAGS = -O2 -fomit-frame-pointer
 #FFLOPT = -O2 -fomit-frame-pointer
@@ -115,12 +115,13 @@ CFLAGS = -O -DUNDERSCORE
 #FFLAGS = -g -O0 -C
 ##--------------------------
 ### Gfortran
-FC = gfortran
-CHK = 
-CHK = -fbounds-check -finit-real=inf -ffpe-trap=invalid,zero
+FC = gfortran-mp-9
+CHK =
+#CHK = -fbounds-check -finit-real=inf -ffpe-trap=invalid,zero,denormal
 DBL = -fdefault-real-8
-FFLAGS = -O $(CHK) $(DBL)
-FFLOPT = -O $(CHK) $(DBL)
+LGC = -std=legacy
+FFLAGS = -O $(CHK) $(DBL) $(LGC)
+FFLOPT = -O $(CHK) $(DBL) $(LGC)
 FTNLIB =
 
 PLTOBJ = ../plotlib/libPlt_gDP.a 
