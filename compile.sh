@@ -7,4 +7,5 @@ echo '# COMPILING PLOT LIBRARY ################################################'
 /bin/bash ./compile_plotlib.sh || exit
 
 echo '# COMPILING EXECUTABLES #################################################'
+mkdir ./bin
 /bin/bash ./compile_xfoil.sh || exit

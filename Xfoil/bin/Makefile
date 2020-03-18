@@ -6,7 +6,7 @@
 
 
 SHELL = sh
-BINDIR = ~/bin
+BINDIR = ../../bin
 #BINDIR = .
 
 PROGS = xfoil pplot pxplot
