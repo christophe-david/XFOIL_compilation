@@ -23,12 +23,19 @@ def test_xfoil_full_iterations():
     with open(
         pth.join(pth.dirname(__file__), "test_session_200it.txt")
     ) as session_inputs:
-        if platform.system() == "Windows":
-            # Reference test using official build
-            subprocess.run(["xfoil.exe"], stdin=session_inputs)
-        elif platform.system() == "Darwin":
-            # Test macOS build
-            subprocess.run([xfoil_path], stdin=session_inputs)
+        with open(
+            pth.join(pth.dirname(__file__), "session_200it.log"), "w"
+        ) as session_outputs:
+            if platform.system() == "Windows":
+                # Reference test using official build
+                subprocess.run(
+                    ["xfoil.exe"], stdin=session_inputs, stdout=session_outputs
+                )
+            elif platform.system() == "Darwin":
+                # Test macOS build
+                subprocess.run(
+                    [xfoil_path], stdin=session_inputs, stdout=session_outputs
+                )
 
     result = np.genfromtxt(POLAR_RESULT, skip_header=12)
     alpha = result[:, 0]
@@ -71,12 +78,19 @@ def test_xfoil_reduced_iterations():
     with open(
         pth.join(pth.dirname(__file__), "test_session_20it.txt")
     ) as session_inputs:
-        if platform.system() == "Windows":
-            # Reference test using official build
-            subprocess.run(["xfoil.exe"], stdin=session_inputs)
-        elif platform.system() == "Darwin":
-            # Test macOS build
-            subprocess.run([xfoil_path], stdin=session_inputs)
+        with open(
+            pth.join(pth.dirname(__file__), "session_20it.log"), "w"
+        ) as session_outputs:
+            if platform.system() == "Windows":
+                # Reference test using official build
+                subprocess.run(
+                    ["xfoil.exe"], stdin=session_inputs, stdout=session_outputs
+                )
+            elif platform.system() == "Darwin":
+                # Test macOS build
+                subprocess.run(
+                    [xfoil_path], stdin=session_inputs, stdout=session_outputs
+                )
 
     result = np.genfromtxt(POLAR_RESULT, skip_header=12)
     alpha = result[:, 0]
