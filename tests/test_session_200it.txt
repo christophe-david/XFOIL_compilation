@@ -16,7 +16,7 @@ polar_result.txt
 
 ASEQ
 0
-30
+20
 0.5
 PACC
 
