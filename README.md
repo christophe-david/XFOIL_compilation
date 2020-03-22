@@ -9,7 +9,7 @@ Original file are downloaded from https://web.mit.edu/drela/Public/web/xfoil/.
 - Having gfortran installed. This can be done with several methods. On macOS, I used [MacPorts](https://www.macports.org):
 ```bash
 sudo port install gcc9
-sudo ln -s /opt/local/bin/gfortran-mp-9 /opt/local/bin/gfortran
+sudo port select --set gcc mp-gcc9
 ```
 
 ## What to do

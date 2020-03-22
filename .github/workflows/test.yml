@@ -11,7 +11,7 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.7]
-        os: [macos-latest]
+        os: [macos-latest, ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +23,10 @@ jobs:
       - name: Set path for MacPorts
         if: runner.os == 'macOS'
         run: echo "::add-path::/opt/local/bin"
+
+      - name: Install gfortran on Ubuntu
+        if: runner.os == 'Linux'
+        run: sudo apt install gfortran
 
       - name: Install X11 from MacPorts
         if: runner.os == 'macOS'
@@ -37,7 +41,7 @@ jobs:
           sudo port install xorg
 
       - name: Compile XFOIL
-        run: ./compile.sh
+        run:  ./compile.sh
 
       - name: Install dependencies for test
         run: pip install pytest numpy
