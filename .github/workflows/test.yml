@@ -24,7 +24,7 @@ jobs:
         if: runner.os == 'macOS'
         run: echo "::add-path::/opt/local/bin"
 
-      - name: Iinstall gfortran on Ubuntu
+      - name: Install gfortran on Ubuntu
         if: runner.os == 'Ubuntu'
         run: sudo apt install gfortran
 
@@ -41,7 +41,9 @@ jobs:
           sudo port install xorg
 
       - name: Compile XFOIL
-        run: ./compile.sh
+        run: |
+          echo ${{ runner.os }}
+          ./compile.sh
 
       - name: Install dependencies for test
         run: pip install pytest numpy
