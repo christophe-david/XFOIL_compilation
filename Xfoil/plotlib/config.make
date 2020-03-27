@@ -17,7 +17,7 @@ FC = gfortran
 CC  = gcc
 DP = -fdefault-real-8
 
-FFLAGS  = -m64 -O2 $(DP)
+FFLAGS  = -m64 -O2 $(DP) -static -lgfortran -static-libgfortran -static-libgcc
 CFLAGS  = -m64 -O2 $(DEFINE) -I/usr/X11/include -I/usr/include -I/opt/local/include
 AR = ar r
 RANLIB = ranlib 

@@ -119,7 +119,7 @@ FC = gfortran
 CHK =
 #CHK = -fbounds-check -finit-real=inf -ffpe-trap=invalid,zero,denormal
 DBL = -fdefault-real-8
-LGC = -std=legacy
+LGC = -std=legacy -static -lgfortran -static-libgfortran -static-libgcc
 FFLAGS = -O $(CHK) $(DBL) $(LGC)
 FFLOPT = -O $(CHK) $(DBL) $(LGC)
 FTNLIB =

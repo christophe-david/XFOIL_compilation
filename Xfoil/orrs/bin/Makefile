@@ -19,7 +19,7 @@ FTNLIB =
 #========================================
 # gfortran
 FC = gfortran
-FLG = -O -fdefault-real-8
+FLG = -O -fdefault-real-8 -static -lgfortran -static-libgfortran -static-libgcc
 PLTLIB = -L/usr/X11R6/lib -lX11
 FTNLIB =
 
