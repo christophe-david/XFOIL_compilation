@@ -20,25 +20,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Set path for MacPorts
-        if: runner.os == 'macOS'
-        run: echo "::add-path::/opt/local/bin"
-
-      - name: Install gfortran on Ubuntu
-        if: runner.os == 'Linux'
-        run: sudo apt install gfortran
-
-      - name: Install X11 from MacPorts
+      - name: Install X11 on macOS
         if: runner.os == 'macOS'
         run: |
-          curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.6.2.tar.bz2
-          tar xf MacPorts-2.6.2.tar.bz2
-          cd MacPorts-2.6.2/
-          ./configure
-          make
-          sudo make install
-          sudo port selfupdate
-          sudo port install xorg
+          brew reinstall gcc  # needed to have gfortran available
+          brew install xquartz
 
       - name: Compile XFOIL
         run:  ./compile.sh
