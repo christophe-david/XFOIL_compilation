@@ -12,8 +12,8 @@ Original file are downloaded from https://web.mit.edu/drela/Public/web/xfoil/.
 ### Getting X11 and gfortran with [Homebrew](https://brew.sh)
 ```bash
 # Get X11
-brew tap caskroom/cask
-brew cask install xquartz
+brew tap homebrew/cask
+brew install xquartz
 
 # Get gfortran
 brew install gcc
@@ -25,8 +25,8 @@ brew install gcc
 sudo port install xorg
 
 # Get gfortran
-sudo port install gcc9
-sudo port select --set gcc mp-gcc9
+sudo port install gcc11
+sudo port select --set gcc mp-gcc11
 ```
 
 
