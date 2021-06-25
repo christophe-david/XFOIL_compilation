@@ -23,7 +23,6 @@ jobs:
       - name: Install X11 on macOS
         if: runner.os == 'macOS'
         run: |
-          curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
           brew reinstall gcc
           brew install xquartz
 
