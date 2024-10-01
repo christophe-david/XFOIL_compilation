@@ -12,7 +12,6 @@ Original file are downloaded from https://web.mit.edu/drela/Public/web/xfoil/.
 ### Getting X11 and gfortran with [Homebrew](https://brew.sh)
 ```bash
 # Get X11
-brew tap homebrew/cask
 brew install xquartz
 
 # Get gfortran
